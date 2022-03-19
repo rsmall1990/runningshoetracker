@@ -19,12 +19,12 @@
         <div class="nav-wrapper">
           <ul>
             <li>
-              <a href="/" class="left brand-logo">&nbsp;&nbsp;Running Shoe Tracker</a>
+              <a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Running Shoe Tracker</a>
             </li>
           </ul>
           <ul class="right">
-            <li><a href="/about">About</a></li>
-            <li><a href="/shoes">View all my Shoes</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'index' %}">View all my Shoes</a></li>
           </ul>
         </div>
       </nav>

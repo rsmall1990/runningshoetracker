@@ -1,20 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-
-"""
-Fake data
-"""
-
-class shoe:
-    def __init__(self, brand, color, miles):
-        self.brand = brand
-        self.color = color
-        self.miles = miles
-
-shoes = [
-    shoe('nikes', 'black', 200),
-    shoe('brooks', 'orange', 150)
-]
+from django.shortcuts import redirect, render
+from .models import Shoe
 
 # Create your views here.
 
@@ -25,4 +10,9 @@ def about(request):
     return render(request, 'about.html', )
 
 def shoes_index(request):
+    shoes = Shoe.objects.all()
     return render(request, 'shoes/index.html', {'shoes': shoes})
+
+def shoes_detail(request, shoe_id):
+    shoe = Shoe.objects.get(id=shoe_id)
+    return render(request, 'shoes/detail.html', {'shoe': shoe})

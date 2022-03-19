@@ -5,11 +5,13 @@
 
 {% for shoe in shoes %}
     <div class="card">
-        <div class="card-content">
-            <span class="card-title">{{ shoe.brand }}</span>
-            <p>Color: {{ shoe.color }}</p>
-            <p>Current Mileage: {{ shoe.miles }}</p>
-        </div>
+        <a href="/shoes/{{shoe.id}}">
+            <div class="card-content">
+                <span class="card-title">{{ shoe.brand }}</span>
+                <p>Color: {{ shoe.color }}</p>
+                <p>Current Mileage: {{ shoe.miles }}</p>
+            </div>
+        </a>
     </div>
 {% endfor %}
 
