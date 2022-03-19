@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Shoe
 
 # Create your views here.
@@ -16,3 +17,15 @@ def shoes_index(request):
 def shoes_detail(request, shoe_id):
     shoe = Shoe.objects.get(id=shoe_id)
     return render(request, 'shoes/detail.html', {'shoe': shoe})
+
+class ShoeCreate(CreateView):
+    model = Shoe
+    fields = '__all__'
+
+class ShoeUpdate(UpdateView):
+    model = Shoe
+    fields = '__all__'
+
+class ShoeDelete(DeleteView):
+    model = Shoe
+    success_url = '/shoes/'
